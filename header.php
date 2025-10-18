@@ -41,7 +41,8 @@
                             'container' => '',
                             'theme_location' => 'primary',
                             'menu_class' => 'navbar-nav flex-column text-sm-center text-md-left',
-                            'items_wrap' => '<ul id="%1$s" class="%2$s"></ul>'
+                            'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s
+                            </ul>'
                         ]
                         );
                     ?>

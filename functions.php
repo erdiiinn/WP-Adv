@@ -24,3 +24,39 @@
 
     }
     add_action('wp_enquee_scripts', 'wp_adv_register_styles');
+
+    function wp_adv_register_scripts(){
+        wp_enqueue_script('wp-adv-bootstrap-js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js' ['jquery'], '5.0.2', true );
+
+        wp_enqueue_script('wp-adv-js', get_template_directory_uri(). '/assets/js/main.js', [] , '1.0', true );
+    }
+
+    add_action('wp_enqueue_scripts', 'wp_adv_register_scripts');
+
+    function wp_adv_nav_menu_li_class($classes, $item, $args, $depth){
+        if (isset($args->menu_class) && strpos($args->menu_class, 'navbar-nav') !== false){
+            $classes[] = 'nav-item text-decoration-none';
+
+            if(in_array('current-many-item', $classes) || in_array('current_page_item', $classes)){
+                $classes[]= 'active';
+            }
+        }
+        return $classes;
+    }
+
+    add_filter('nav_menu_css_class', 'wp_adv_nav_menu_li_class', 10, 4);
+
+    function wp_adv_menu_link_atts($atts, $item, $args, $depth){
+        if(isset($args->menu_class) &&strpos($args->menu_class, 'navbar-nav') !== false){
+            $existing = isset($atts['class']) ? $atts['class'] . ' ' : '';
+            $atts['class'] = trim($existing . 'nav-link');
+
+            $title = strtolower(trim($item->title));
+            if(strpos($title, 'contact') !== false || in_array('contact', $item->classes)){
+                $atts['class'] .= 'btn btn-primary';
+            }
+        }
+        return $atts;
+    }
+
+    add_filter('nav_menu_link_attributes', 'wp_adv_menu_link_atts', 10, 4);
