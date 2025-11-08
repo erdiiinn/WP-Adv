@@ -3,22 +3,22 @@
         <div class="comments-header">
             <h2 class="comment-reply-title">
                 <?php
-                if(!have_comments()){
-                    echo "Leave a comment";
-                }
-                else{
-                    echo get_comments_number(). 'Comments';
-                }
+                    if(!have_comments()){
+                        echo "Leave a comment";
+                    }
+                    else {
+                        echo get_comments_number(). 'Comments';
+                    }
                 ?>
             </h2>
         </div>
                 <div class="comments-inner">
-                    <?php
+                    <?php 
                         wp_list_comments(
                             [
                                 'style' => '<div>',
                                 'short_ping' => true,
-                                'avatar_size' => 50,        
+                                'avatar_size' => 50,
                             ]
                             );
                     ?>
@@ -30,10 +30,10 @@
             comment_form(
                 [
                     'class_form' => 'comment-form',
-            'title_reply_before' => '<h2 id="reply-title" class="comment-reply-title">',
-                    'title_reply_after' => '</h2>',
+                    'title_reply_before' => '<h2 id="reply-title" class="comment-reply-title">',
+                    'title_reply_after' => '</h2>', 
                 ]
                 );
-        }
+            }
         ?>
-     </div>   
+</div>
