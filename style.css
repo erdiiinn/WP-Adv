@@ -157,6 +157,28 @@ h6 {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(256,256,256, 1)' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
+.skip-link{
+  position: absolute;
+  left: -999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 10000;
+}
+
+.skip-link:focus{
+  left: 1rem;
+  top: 1rem;
+  width: auto;
+  height: auto;
+  padding: 0.5rem 1rem;
+  background-color: #000;
+  color: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
 .header .nav-item {
   font-weight: bold;
 }
@@ -189,6 +211,23 @@ h6 {
   border-radius: 50%;
   transition: all 0.2s ease-in-out;
   background-color: #fff;
+}
+
+.pagination{
+  justify-content: center;
+  align-items: center;
+}
+
+.page-numbers{
+  display: inline-block;
+  color: var(--lightgray);
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1;
+  margin: 0 0.25rem;
+  padding: 0.5rem 0.75rem;
+  text-decoration: none;
+  background-color: var(--dark);
 }
 
 .social-list a:hover {
